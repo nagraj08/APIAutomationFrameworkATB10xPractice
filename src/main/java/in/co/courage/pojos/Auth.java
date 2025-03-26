@@ -1,7 +1,23 @@
 package in.co.courage.pojos;
 
 public class Auth {
-    private String username;
+    private String email;
+    private String password;
+
+    // Constructor
+//    public Auth(String email, String password) {
+//        this.email = email;
+//        this.password = password;
+//    }
+
+    // Getters and Setters
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getPassword() {
         return password;
@@ -11,13 +27,12 @@ public class Auth {
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    // toString Method for Debugging
+    @Override
+    public String toString() {
+        return "Auth{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    private String password;
 }

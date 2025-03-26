@@ -3,73 +3,66 @@ package in.co.courage.pojos;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Booking {
+public class User {
 
-    @SerializedName("firstname")
+    @SerializedName("name")
     @Expose
-    private String firstname;
-    @SerializedName("lastname")
+    private String name;
+
+    @SerializedName("job")
     @Expose
-    private String lastname;
-    @SerializedName("totalprice")
-    @Expose
-    private Integer totalprice;
-    @SerializedName("depositpaid")
-    @Expose
-    private Boolean depositpaid;
-    @SerializedName("bookingdates")
-    @Expose
-    private Bookingdates bookingdates;
-    @SerializedName("additionalneeds")
-    @Expose
-    private String additionalneeds;
+    private String job;
 
-    public String getFirstname() {
-        return firstname;
+    @SerializedName("id")
+    @Expose(serialize = false, deserialize = true) // Exclude from request, include in response
+    private String id;
+
+    @SerializedName("createdAt")
+    @Expose(serialize = false, deserialize = true) // Exclude from request, include in response
+    private String createdAt;
+
+    // Default Constructor
+    public User() {}
+
+    // Constructor for creating a user
+    public User(String name, String job) {
+        this.name = name;
+        this.job = job;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    // Getters and Setters
+    public String getName() {
+        return name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public String getJob() {
+        return job;
     }
 
-    public Integer getTotalprice() {
-        return totalprice;
+    public void setJob(String job) {
+        this.job = job;
     }
 
-    public void setTotalprice(Integer totalprice) {
-        this.totalprice = totalprice;
+    public String getId() {
+        return id;
     }
 
-    public Boolean getDepositpaid() {
-        return depositpaid;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setDepositpaid(Boolean depositpaid) {
-        this.depositpaid = depositpaid;
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", job='" + job + '\'' +
+                ", id='" + id + '\'' +
+                ", createdAt='" + createdAt + '\'' +
+                '}';
     }
-
-    public Bookingdates getBookingdates() {
-        return bookingdates;
-    }
-
-    public void setBookingdates(Bookingdates bookingdates) {
-        this.bookingdates = bookingdates;
-    }
-
-    public String getAdditionalneeds() {
-        return additionalneeds;
-    }
-
-    public void setAdditionalneeds(String additionalneeds) {
-        this.additionalneeds = additionalneeds;
-    }
-
 }
+
